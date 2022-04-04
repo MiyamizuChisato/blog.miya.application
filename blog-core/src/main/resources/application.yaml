@@ -1,0 +1,30 @@
+server:
+  port: 8109
+spring:
+  redis:
+    host: 106.14.24.91
+    port: 6379
+    database: 0
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+  profiles:
+    active: dev
+  application:
+    name: blog-core-service
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.14.24.91:3306/miya_blog?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    username: root
+    password: ao1sakura
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:io/miya/srb/core/mapper/xml/*.xml
+  page:
+     size: 5
